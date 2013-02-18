@@ -1,0 +1,12 @@
+﻿Hello, you lost your password: to log in please use the following
+
+
+User Name: ------<% UserName %>--------
+
+password is -----<% Password %>---------
+
+thanks for signing up.
+
+cheers,
+
+the chunky monkey team...

@@ -1,0 +1,8 @@
+﻿hi its the web server, ##person## left you a message:
+
+
+Name:           ##Name##
+E-mail address: ##Email##
+Home Phone:     ##HomePhone##
+Business phone: ##BusinessPhone##
+Comments:		##Comments##

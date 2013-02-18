@@ -1,0 +1,10 @@
+﻿Hello, you signed up for:
+
+User Name: <% UserName %>
+yourpass word is <% Password %>
+
+thanks for signing up.
+
+cheers,
+
+the chunky monkey team...

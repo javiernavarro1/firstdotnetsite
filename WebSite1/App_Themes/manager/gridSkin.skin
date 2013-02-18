@@ -1,0 +1,9 @@
+﻿<asp:GridView runat="server" CssClass="gridView">
+        <HeaderStyle CssClass="gridViewHeader"  />
+        <PagerStyle  CssClass="gridViewPager" />
+        <SortedAscendingHeaderStyle CssClass="gridViewSortAscend"  />
+        <SortedDescendingHeaderStyle  CssClass="gridViewSortDecend" />
+</asp:GridView>
+
+ 
+  

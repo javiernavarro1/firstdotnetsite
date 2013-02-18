@@ -1,0 +1,20 @@
+﻿.watermarks
+{
+    position:relative;
+    width:0;
+    height:1.25em;
+    vertical-align:top;
+}
+.watermarks label
+{ position:absolute;
+  left:2px;
+  white-space:nowrap;
+  color:#998;
+  padding-left:4px;
+  height:1.24em;
+  vertical-align:middle;
+    }
+ .inputbox
+ {
+     width:300px;
+ }

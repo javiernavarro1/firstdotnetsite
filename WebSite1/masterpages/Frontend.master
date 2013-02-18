@@ -1,0 +1,93 @@
+﻿<%@ Master Language="VB" CodeFile="Frontend.master.vb" Inherits="masterpages_Frontend" %>
+<!--there are two ways to add the app themes into one is by using the control above and the other is via web.config-->
+<!--this is only needed if it is not specified in the web.config file if so, it is needed
+the other way is through the server side backend that chooses preferd style via frontend.master.vb
+<%@ Register src="~/Control/banner.ascx" tagname="banner" tagprefix="uc1" %>-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../Style/form.css" rel="stylesheet" type="text/css" />
+    <link href="../Style/Style.css" rel="stylesheet" type="text/css" />
+   </head>
+<body>
+    
+    <form id="form1" runat="server">
+<asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="True">
+<Scripts>
+<asp:ScriptReference Path="~/scripts/jquery-1.4.1.min.js" />
+</Scripts>
+    </asp:ScriptManager>
+    <div id="PageWrapper">
+    <div id="Header"><a href="~/" runat="server"></a></div>
+    <div id ="MenuWrapper">
+        <asp:Menu ID="Menu1" runat="server" CssClass="MainMenu" 
+            DataSourceID="SiteMapDataSource1" Orientation="Horizontal" 
+            StaticEnableDefaultPopOutImage="False">
+        </asp:Menu>
+        
+        <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" 
+            ShowExpandCollapse="False">
+        <LevelStyles>
+            <asp:TreeNodeStyle CssClass="FirstLevelMenuItems" />
+
+        </LevelStyles>
+        </asp:TreeView>
+        
+        
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" 
+            ShowStartingNode="False" />
+        </div>
+    <div id ="MainContent">
+     <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+        </asp:SiteMapPath><br /><br />
+    <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+       
+    </asp:ContentPlaceHolder></div>
+    
+    
+    <div id="Sidebar">
+    
+        select a theme <br />
+        <asp:DropDownList ID="ThemeList" runat="server" AutoPostBack="True">
+            <asp:ListItem>Monochrome</asp:ListItem>
+            <asp:ListItem>DarkGrey</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <retardedAd:banner ID="banner1" runat="server" displayDirection="vert"/>
+
+        <br />
+    </div>
+    <div id="Footer">
+    <!--the {0} refers to the dynamic call for the name-->
+    <asp:LoginName ID="loginName1" runat="server" FormatString="Logged in as {0}" />
+    
+    <asp:LoginView ID="LoginView1" runat="server">
+        <LoggedInTemplate>
+            <asp:LoginStatus ID="LoginStatus2" runat="server" />
+        </LoggedInTemplate>
+        <RoleGroups>
+            <asp:RoleGroup Roles="Managers">
+                <ContentTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" 
+                        NavigateUrl="~/mangement/default.aspx">Manage this site</asp:HyperLink> or
+                        <asp:LoginStatus ID="LoginStatus2" runat="server" />
+                </ContentTemplate>
+            </asp:RoleGroup>
+        </RoleGroups>
+        </asp:LoginView>
+    </div>
+        
+    </div>
+    
+
+
+    </form>
+    <asp:ContentPlaceHolder ID="clientscript" runat="server">
+    </asp:ContentPlaceHolder>
+    </body>
+</html>
